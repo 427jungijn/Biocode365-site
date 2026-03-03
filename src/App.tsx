@@ -344,7 +344,7 @@ export default function App() {
                   <Award className="w-4 h-4" />
                   <span>Welcome Gift</span>
                 </div>
-                <h3 className="text-2xl md:text-3xl font-black mb-6 text-white leading-tight">입장 즉시 스페셜 리포트 증정</h3>
+                <h3 className="text-2xl md:text-3xl font-black mb-6 text-white leading-tight">입장 즉시 영상 리포트 증정</h3>
                 <div className="bg-bio-surface/50 border border-white/5 p-6 rounded-2xl mb-10">
                   <p className="text-bio-lime font-black text-lg mb-2">"AI로 어떻게 고혈압이 정상혈압이 될 수 있었을까?"</p>
                   <p className="text-gray-400 text-sm leading-relaxed">
@@ -436,7 +436,7 @@ export default function App() {
             onClick={() => scrollToSection('kakao-section')}
             className="inline-flex items-center gap-4 bg-bio-lime text-bio-black font-black text-xl md:text-3xl py-6 px-12 md:px-20 rounded-full shadow-[0_20px_50px_rgba(210,232,35,0.3)] hover:shadow-[0_20px_70px_rgba(210,232,35,0.5)] transition-all cursor-pointer"
           >
-            <span>무료 코칭방 입장하기</span>
+            <span>무료 코칭룸 입장하기</span>
             <ArrowRight className="w-8 h-8" />
           </motion.button>
           
