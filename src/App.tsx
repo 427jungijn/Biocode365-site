@@ -282,7 +282,7 @@ export default function App() {
               </div>
               <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-bio-lime transition">단편적인 진료의 한계</h3>
               <p className="text-lg text-gray-400 leading-relaxed">
-                3분 진료로는 수천 가지 생활 변수와<br className="hidden md:block" />
+                3분 진료로는 수천 가지 생활 변수와 <br className="hidden md:block" />
                 유전적 요인을 모두 분석하여 <span className="text-white font-medium">개인화된 해답</span>을 낼 수 없습니다.
               </p>
             </motion.div>
