@@ -253,10 +253,10 @@ export default function App() {
       <section id="problem" className="pt-12 pb-32 bg-bio-black relative">
         <div className="container mx-auto px-6">
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight">
-              매일 혈압을 재고 있지만,<br />왜 제자리걸음일까요?
+            <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight leading-tight">
+              매일 혈압을 재고 있지만,<br />
+              <span className="highlight-underline">왜 제자리 걸음 일까요?</span>
             </h2>
-            <div className="w-20 h-1 bg-bio-lime mx-auto rounded-full"></div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -347,7 +347,7 @@ export default function App() {
                 </div>
                 <h3 className="text-2xl md:text-3xl font-black mb-6 text-white leading-tight">입장 즉시 스페셜 리포트 증정</h3>
                 <div className="bg-bio-surface/50 border border-white/5 p-6 rounded-2xl mb-10">
-                  <p className="text-bio-lime font-black text-lg mb-2">"약이 듣지 않는 3가지 과학적 원인"</p>
+                  <p className="text-bio-lime font-black text-lg mb-2">"AI로 어떻게 고혈압이 정상혈압이 될 수 있었을까?"</p>
                   <p className="text-gray-400 text-sm leading-relaxed">
                     KAIST 박사팀이 분석한 고혈압 관리의 핵심 리포트 풀버전 영상을 입장 즉시 보내드립니다.
                   </p>
