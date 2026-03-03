@@ -441,13 +441,13 @@ export default function App() {
             <ArrowRight className="w-8 h-8" />
           </motion.button>
           
-          <footer className="mt-32 pt-12 border-t border-white/5 text-xs text-gray-600 space-y-4">
+          <footer className="mt-32 pt-12 border-t border-white/5 text-xs text-white space-y-4">
             <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 font-medium">
               <p>(주)바이오코드365</p>
               <p>대표이사: 서정진</p>
-              <p>사업자등록번호: XXX-XX-XXXXX</p>
+              <p>사업자등록번호: 753-87-0339</p>
             </div>
-            <p className="opacity-60">특허출원번호: 10-XXXX-XXXXXXX | 알고리즘 개발: KAIST 박사팀</p>
+            <p className="opacity-60">특허출원: 10-2025-0194080</p>
             <p className="max-w-2xl mx-auto opacity-40 leading-relaxed pt-4">
               © 2026 BIOCODE365. All rights reserved. 본 서비스는 비의료 건강관리 코칭 서비스입니다.
             </p>
