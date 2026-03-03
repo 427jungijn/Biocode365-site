@@ -150,7 +150,7 @@ export default function App() {
               <span>AI 분석 코칭룸 무료 입장</span>
               <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
             </button>
-            <p className="text-bio-lime text-xs md:text-sm font-medium mt-6 opacity-80 flex items-center justify-center gap-2">
+            <p className="text-white text-xs md:text-sm font-medium mt-6 opacity-80 flex items-center justify-center gap-2">
               <Calendar className="w-4 h-4" />
               *매주 수요일, 실제 환자 분석 리포트가 공개됩니다.
             </p>
