@@ -254,8 +254,7 @@ export default function App() {
         <div className="container mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight leading-tight">
-              매일 혈압을 재고 있지만,<br />
-              <span className="highlight-underline">왜 제자리 걸음 일까요?</span>
+              <span className="highlight-underline">관리를 해도 왜 혈압은 개선되지 않을까요?</span>
             </h2>
           </div>
 
