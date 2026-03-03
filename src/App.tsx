@@ -241,7 +241,7 @@ export default function App() {
       </header>
 
       {/* Problem Section */}
-      <section id="problem" className="py-32 bg-bio-black relative">
+      <section id="problem" className="pt-12 pb-32 bg-bio-black relative">
         <div className="container mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight">
@@ -283,7 +283,7 @@ export default function App() {
       </section>
 
       {/* Invitation Section */}
-      <section id="kakao-section" className="py-32 bg-bio-surface relative overflow-hidden">
+      <section id="kakao-section" className="pt-12 pb-32 bg-bio-surface relative overflow-hidden">
         <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
         
         <div className="container mx-auto px-6 relative z-10">
@@ -363,7 +363,7 @@ export default function App() {
       </section>
 
       {/* Trust Section */}
-      <section id="trust" className="py-32 bg-bio-black text-center border-t border-white/5">
+      <section id="trust" className="pt-12 pb-32 bg-bio-black text-center border-t border-white/5">
         <div className="container mx-auto px-6">
           <div className="mb-20">
             <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight">
@@ -406,7 +406,7 @@ export default function App() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-32 bg-bio-surface text-center relative overflow-hidden">
+      <section className="pt-12 pb-32 bg-bio-surface text-center relative overflow-hidden">
         <div className="absolute bottom-[-20%] left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-bio-lime opacity-[0.07] blur-[120px] rounded-full pointer-events-none"></div>
 
         <div className="container mx-auto px-6 relative z-10">
