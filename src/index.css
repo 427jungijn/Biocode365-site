@@ -31,4 +31,8 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  .shadow-glow {
+    filter: drop-shadow(0 0 8px rgba(210, 232, 35, 0.6));
+  }
 }

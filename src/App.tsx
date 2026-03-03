@@ -190,26 +190,35 @@ export default function App() {
                 {/* Arrow Animation */}
                 <div className="flex-1 max-w-[240px] flex flex-col items-center justify-center relative py-8 md:py-0">
                   <div className="hidden md:block w-full">
-                    <svg className="w-full h-12 text-bio-lime/30" viewBox="0 0 200 40" fill="none">
+                    <svg className="w-full h-12 text-bio-lime/60" viewBox="0 0 200 40" fill="none">
                       <motion.path 
                         d="M10 20H190" 
                         stroke="currentColor" 
-                        strokeWidth="2" 
+                        strokeWidth="3" 
                         strokeLinecap="round" 
-                        strokeDasharray="6 6"
-                        animate={{ strokeDashoffset: [-12, 0] }}
+                        strokeDasharray="8 8"
+                        animate={{ strokeDashoffset: [-16, 0] }}
                         transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                       />
-                      <path d="M180 10L195 20L180 30" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-bio-lime" />
+                      <path d="M180 10L195 20L180 30" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-bio-lime" />
                     </svg>
                   </div>
-                  <motion.div 
-                    animate={{ y: [0, 8, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="md:hidden"
-                  >
-                    <ArrowDown className="h-8 w-8 text-bio-lime/50" />
-                  </motion.div>
+                  
+                  {/* Mobile Arrows (Vertical Dashed Line) */}
+                  <div className="md:hidden h-32 w-12 flex items-center justify-center">
+                    <svg className="h-full w-12 text-bio-lime/60" viewBox="0 0 40 200" fill="none">
+                      <motion.path 
+                        d="M20 10V190" 
+                        stroke="currentColor" 
+                        strokeWidth="3" 
+                        strokeLinecap="round" 
+                        strokeDasharray="8 8"
+                        animate={{ strokeDashoffset: [-16, 0] }}
+                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                      />
+                      <path d="M10 180L20 195L30 180" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-bio-lime shadow-glow" />
+                    </svg>
+                  </div>
                   
                   <div className="bg-bio-lime text-bio-black px-4 py-1.5 rounded-full font-black text-xs shadow-lg absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 whitespace-nowrap z-20 uppercase tracking-wider">
                     AI Coaching
