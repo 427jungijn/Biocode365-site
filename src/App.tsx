@@ -25,6 +25,9 @@ export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
+  const [showSignup, setShowSignup] = useState(false);
+  const [signupData, setSignupData] = useState({ id: "", password: "", name: "", email: "", agreed: false });
+  const [signupError, setSignupError] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
@@ -65,6 +68,23 @@ export default function App() {
     } else {
       setLoginError("아이디 또는 비밀번호가 일치하지 않습니다.");
     }
+  };
+
+  const handleSignup = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!signupData.id || !signupData.password || !signupData.name || !signupData.email) {
+      setSignupError("모든 항목을 입력해주세요.");
+      return;
+    }
+    if (!signupData.agreed) {
+      setSignupError("개인정보 수집 및 이용에 동의해주세요.");
+      return;
+    }
+    alert('회원가입이 완료되었습니다. 로그인해주세요.');
+    setShowSignup(false);
+    setShowLogin(true);
+    setSignupData({ id: "", password: "", name: "", email: "", agreed: false });
+    setSignupError("");
   };
 
   return (
@@ -460,10 +480,78 @@ export default function App() {
           
           <div className="mt-32 pt-12 border-t border-white/5">
             {!isLoggedIn ? (
-              !showLogin ? (
+              showSignup ? (
+                <div className="max-w-sm mx-auto bg-bio-surface border border-white/10 rounded-3xl p-8 mb-16 text-left shadow-2xl">
+                  <h3 className="text-2xl font-black text-white mb-6 text-center">회원가입</h3>
+                  <form onSubmit={handleSignup} className="flex flex-col gap-4">
+                    <div>
+                      <input 
+                        type="text" 
+                        placeholder="아이디" 
+                        value={signupData.id}
+                        onChange={(e) => setSignupData({...signupData, id: e.target.value})}
+                        className="w-full bg-bio-black border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-bio-lime transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <input 
+                        type="password" 
+                        placeholder="비밀번호" 
+                        value={signupData.password}
+                        onChange={(e) => setSignupData({...signupData, password: e.target.value})}
+                        className="w-full bg-bio-black border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-bio-lime transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <input 
+                        type="text" 
+                        placeholder="이름" 
+                        value={signupData.name}
+                        onChange={(e) => setSignupData({...signupData, name: e.target.value})}
+                        className="w-full bg-bio-black border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-bio-lime transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <input 
+                        type="email" 
+                        placeholder="이메일 주소" 
+                        value={signupData.email}
+                        onChange={(e) => setSignupData({...signupData, email: e.target.value})}
+                        className="w-full bg-bio-black border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-bio-lime transition-colors"
+                      />
+                    </div>
+                    <label className="flex items-center gap-2 text-sm text-gray-400 mt-2 cursor-pointer">
+                      <input 
+                        type="checkbox" 
+                        checked={signupData.agreed}
+                        onChange={(e) => setSignupData({...signupData, agreed: e.target.checked})}
+                        className="w-4 h-4 accent-bio-lime bg-bio-black border-white/10 rounded"
+                      />
+                      <span>개인정보 수집 및 이용 동의 (필수)</span>
+                    </label>
+                    {signupError && <p className="text-red-500 text-xs font-medium">{signupError}</p>}
+                    <button 
+                      type="submit"
+                      className="w-full py-3 mt-2 rounded-xl bg-bio-lime text-bio-black font-black text-lg hover:scale-[1.02] transition-transform active:scale-[0.98]"
+                    >
+                      가입하기
+                    </button>
+                    <button 
+                      type="button"
+                      onClick={() => {
+                        setShowSignup(false);
+                        setSignupError("");
+                      }}
+                      className="w-full py-3 rounded-xl border border-white/20 text-white font-bold hover:bg-white/5 transition-colors"
+                    >
+                      취소
+                    </button>
+                  </form>
+                </div>
+              ) : !showLogin ? (
                 <div className="flex justify-center gap-4 mb-16">
                   <button 
-                    onClick={() => alert('회원가입 페이지로 이동합니다.')}
+                    onClick={() => setShowSignup(true)}
                     className="px-8 py-3 rounded-full border border-white/20 text-white font-bold hover:bg-white/10 transition-colors"
                   >
                     회원가입
