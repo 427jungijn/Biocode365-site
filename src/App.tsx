@@ -23,6 +23,11 @@ import { useState, useEffect } from "react";
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState("");
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -47,6 +52,19 @@ export default function App() {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (username === 'admin' && password === 'admin365') {
+      setIsLoggedIn(true);
+      setShowLogin(false);
+      setLoginError("");
+      setUsername("");
+      setPassword("");
+    } else {
+      setLoginError("아이디 또는 비밀번호가 일치하지 않습니다.");
+    }
   };
 
   return (
@@ -440,7 +458,96 @@ export default function App() {
             <ArrowRight className="w-8 h-8" />
           </motion.button>
           
-          <footer className="mt-32 pt-12 border-t border-white/5 text-xs text-white space-y-4">
+          <div className="mt-32 pt-12 border-t border-white/5">
+            {!isLoggedIn ? (
+              !showLogin ? (
+                <div className="flex justify-center gap-4 mb-16">
+                  <button 
+                    onClick={() => alert('회원가입 페이지로 이동합니다.')}
+                    className="px-8 py-3 rounded-full border border-white/20 text-white font-bold hover:bg-white/10 transition-colors"
+                  >
+                    회원가입
+                  </button>
+                  <button 
+                    onClick={() => setShowLogin(true)}
+                    className="px-8 py-3 rounded-full bg-bio-lime text-bio-black font-bold hover:bg-bio-lime/90 transition-colors"
+                  >
+                    로그인
+                  </button>
+                </div>
+              ) : (
+                <div className="max-w-sm mx-auto bg-bio-surface border border-white/10 rounded-3xl p-8 mb-16 text-left shadow-2xl">
+                  <h3 className="text-2xl font-black text-white mb-6 text-center">로그인</h3>
+                  <form onSubmit={handleLogin} className="flex flex-col gap-4">
+                    <div>
+                      <input 
+                        type="text" 
+                        placeholder="아이디" 
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        className="w-full bg-bio-black border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-bio-lime transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <input 
+                        type="password" 
+                        placeholder="비밀번호" 
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="w-full bg-bio-black border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-bio-lime transition-colors"
+                      />
+                    </div>
+                    {loginError && <p className="text-red-500 text-xs font-medium">{loginError}</p>}
+                    <button 
+                      type="submit"
+                      className="w-full py-3 mt-2 rounded-xl bg-bio-lime text-bio-black font-black text-lg hover:scale-[1.02] transition-transform active:scale-[0.98]"
+                    >
+                      로그인
+                    </button>
+                    <button 
+                      type="button"
+                      onClick={() => {
+                        setShowLogin(false);
+                        setLoginError("");
+                        setUsername("");
+                        setPassword("");
+                      }}
+                      className="w-full py-3 rounded-xl border border-white/20 text-white font-bold hover:bg-white/5 transition-colors"
+                    >
+                      취소
+                    </button>
+                  </form>
+                </div>
+              )
+            ) : (
+              <div className="max-w-md mx-auto bg-bio-black border border-white/10 rounded-3xl p-8 mb-16 text-left shadow-2xl">
+                <div className="flex justify-between items-start mb-6">
+                  <div>
+                    <div className="text-bio-lime text-xs font-bold tracking-widest uppercase mb-2">Premium Service</div>
+                    <h3 className="text-2xl font-black text-white">고혈압 알고리즘 진단</h3>
+                  </div>
+                  <button 
+                    onClick={() => setIsLoggedIn(false)}
+                    className="text-xs text-gray-500 hover:text-white underline underline-offset-4"
+                  >
+                    로그아웃
+                  </button>
+                </div>
+                <div className="flex items-end gap-2 mb-8">
+                  <span className="text-4xl font-black text-white">600,000</span>
+                  <span className="text-lg text-gray-400 font-medium mb-1">원</span>
+                </div>
+                <button 
+                  onClick={() => alert('결제가 진행됩니다.')}
+                  className="w-full py-4 rounded-xl bg-bio-lime text-bio-black font-black text-lg hover:scale-[1.02] transition-transform active:scale-[0.98]"
+                >
+                  결제하기
+                </button>
+              </div>
+            )}
+          </div>
+
+          <footer className="pt-8 text-xs text-white space-y-4">
             <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 font-medium">
               <p>(주)바이오코드365</p>
               <p>대표이사: 서정진</p>
